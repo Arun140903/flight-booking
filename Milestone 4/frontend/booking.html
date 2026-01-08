@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Passenger Details</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<!-- NAVIGATION BAR -->
+<nav class="navbar">
+  <div class="logo">✈ Flight Booking Simulator</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+  </ul>
+</nav>
+<!-- BOOKING FORM -->
+<section class="about">
+  <h2>Traveller Information</h2>
+  <div class="search-box" style="max-width:500px;margin:auto">
+    <input
+      type="text"
+      id="name"
+      placeholder="Passenger Full Name"
+      required
+    />
+    <input
+      type="text"
+      id="seat"
+      placeholder="Preferred Seat (Optional)"
+    />
+    <button onclick="bookFlight()">Proceed to Payment</button>
+  </div>
+</section>
+<footer>
+  <p>© 2026 Arun N | Flight Booking Simulator</p>
+</footer>
+<script src="app.js"></script>
+<script>
+function proceedToPayment() {
+  const name = document.getElementById("name").value;
+  const seat = document.getElementById("seat").value;
+  if (!name) {
+    alert("Please enter passenger name");
+    return;
+  }
+  localStorage.setItem("passenger_name", name);
+  localStorage.setItem("seat_no", seat);
+  window.location.href = "payment.html";
+}
+</script>
+</body>
+</html>

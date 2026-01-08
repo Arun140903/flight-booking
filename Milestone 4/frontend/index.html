@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flight Booking Simulator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">✈ Flight Booking Simulator</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#offers">Features</a></li>
+    <li><a href="#cancel">Cancel Booking</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+</nav>
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Book Flights Smarter ✈️</h1>
+    <p>Real-time dynamic pricing • Secure booking • Instant PNR</p>
+  </div>
+</section>
+<!-- SEARCH -->
+<section class="search-box">
+  <input id="origin" placeholder="From (e.g. Chennai)" />
+  <input id="destination" placeholder="To (e.g. Delhi)" />
+  <input id="date" type="date" />
+  <button onclick="searchFlights()">Search Flights</button>
+</section>
+<!-- RESULTS -->
+<section class="results">
+  <h2>Available Flights</h2><br>
+  <div id="flights-container"></div>
+</section>
+<!-- OFFERS -->
+<section id="offers" class="offers">
+  <h2>Features</h2>
+  <div class="offer-grid">
+    <div class="offer-card">⚡ Real-Time Dynamic Pricing</div>
+    <div class="offer-card">🔒 Concurrency-Safe Booking</div>
+    <div class="offer-card">📊 Demand-Based Fare Engine</div>
+    <div class="offer-card">🧾 Instant PNR & Receipt</div>
+  </div>
+</section>
+<!-- CANCEL BOOKING -->
+<section id="cancel" class="cancel">
+  <h2>Cancel Booking</h2>
+  <input id="cancelPNR" placeholder="Enter PNR" />
+  <button onclick="cancelBooking()">Cancel Booking</button>
+  <p id="cancelResult"></p>
+</section>
+<!-- ABOUT -->
+<section id="about" class="about">
+  <h2>About This Product</h2>
+  <p>
+    Flight Booking Simulator is a Full-Stack based product built using FastAPI,
+    MySQL, Python and JavaScript. It simulates real-world airline pricing,
+    booking concurrency, and payment flows.
+  </p>
+</section>
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Arun N | Flight Booking Simulator</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

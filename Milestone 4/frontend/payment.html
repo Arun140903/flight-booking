@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Payment</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<nav class="navbar">
+  <div class="logo">💳 Secure Payment</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+  </ul>
+</nav>
+<section class="about">
+  <h2>Payment Summary</h2><br>
+  <div style="max-width:450px;margin:auto;background:greenyellow;padding:25px;border-radius:10px">
+    <p><b>Amount:</b> ₹ <span id="amount"></span></p><br>
+    <hr><br>
+    <label>Card Number</label>&nbsp;
+    <input placeholder="1234 5678 9012 3456" /><br><br>
+    <label>Expiry</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input placeholder="MM/YY" /><br><br>
+    <label>CVV</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input placeholder="***" />
+    <br><br>
+    <button onclick="payNow()">Pay Now</button>
+    <p id="paymentResult"></p>
+  </div>
+</section>
+<footer>
+  <p>© 2026 Arun N | Flight Booking Simulator</p>
+</footer>
+<script src="app.js"></script>
+<script>
+  document.getElementById("amount").innerText = localStorage.getItem("price");
+</script>
+<script>
+async function payNow() {
+  const pnr = localStorage.getItem("pnr");
+  if (!pnr) {
+    alert("PNR not found. Please book again.");
+    return;
+  }
+  try {
+    const res = await fetch(
+      `http://127.0.0.1:8000/api/bookings/${pnr}/pay`,
+      { method: "POST" }
+    );
+    const data = await res.json();
+    if (res.ok && data.status === "PAID") {
+      window.location.href = `confirmation.html?pnr=${pnr}`;
+    } else {
+      document.getElementById("paymentResult").innerText =
+        "❌ Payment Failed. Please try again.";
+    }
+  } catch (err) {
+    document.getElementById("paymentResult").innerText =
+      "❌ Payment Error. Try again.";
+  }
+}
+</script>
+</body>
+</html>

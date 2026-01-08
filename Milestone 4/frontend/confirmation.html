@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Booking Confirmed</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body onload="loadReceipt()">
+<nav class="navbar" style="background:#2e7d32">
+  <div class="logo">✅ Booking Confirmed</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+  </ul>
+</nav>
+<section class="about">
+  <h2>Your Ticket</h2><br>
+  <div
+    id="receipt"
+    style="
+      background: yellow;
+      padding: 30px;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1)
+    "
+  >
+  </div><br>
+  <div style="text-align:center;margin-top:20px">
+    <button onclick="downloadReceipt()" class="book-btn">
+      Download Receipt
+    </button>
+  </div>
+</section>
+<footer>
+  <p>© 2026 Arun N | Flight Booking Simulator</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
