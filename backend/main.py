@@ -3,8 +3,9 @@ from typing import List,Literal
 from fastapi import FastAPI,Depends,HTTPException,Query
 from sqlalchemy import select,asc,desc
 from sqlalchemy.orm import Session
-from .db import get_db
-from .models import Flight,FareHistory,Booking
+from .db import get_db,engine
+from .models import Flight,FareHistory,Booking,Base
+Base.metadata.create_all(bind=engine)
 from .schemas import FlightOut,FlightWithPriceOut,FareHistoryOut,BookingRequest,BookingResponse
 from .dynamic_pricing import calculate_dynamic_price
 import asyncio
@@ -282,4 +283,5 @@ async def scheduler_loop(interval_seconds: int = 60):
 @app.on_event("startup")
 async def start_background_simulator():
 #      Start the demand/availability simulator when FastAPI starts.
+
     asyncio.create_task(scheduler_loop(60))    
