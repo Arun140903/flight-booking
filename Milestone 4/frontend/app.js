@@ -1,4 +1,4 @@
-const API = "http://127.0.0.1:8000/api";
+const API = "https://flight-booking-simulator-ig6q.onrender.com/api";
 /* ---------------- FLIGHT SEARCH ---------------- */
 function searchFlights() {
   const origin = document.getElementById("origin").value;
@@ -139,4 +139,5 @@ async function makePayment() {
     document.getElementById("paymentStatus").innerText =
       "❌ Payment Error";
   }
+
 }
