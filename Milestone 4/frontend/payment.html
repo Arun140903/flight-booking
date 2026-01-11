@@ -44,7 +44,7 @@ async function payNow() {
   }
   try {
     const res = await fetch(
-      `http://127.0.0.1:8000/api/bookings/${pnr}/pay`,
+      `https://flight-booking-simulator-ig6q.onrender.com/api/bookings/${pnr}/pay`,
       { method: "POST" }
     );
     const data = await res.json();
@@ -61,4 +61,5 @@ async function payNow() {
 }
 </script>
 </body>
+
 </html>
