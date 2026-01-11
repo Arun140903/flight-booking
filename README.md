@@ -1,3 +1,6 @@
+Website Link - Netlify (Frontend Deployment) : https://flight-booking-simulator.netlify.app/
+Backend Deployment on Render Link : https://flight-booking-simulator-ig6q.onrender.com/docs
+
 ✈️ Flight Booking Simulator with Dynamic Pricing
 
 A full-stack Flight Booking Simulator built using FastAPI (backend) and HTML, CSS, JavaScript (frontend).
